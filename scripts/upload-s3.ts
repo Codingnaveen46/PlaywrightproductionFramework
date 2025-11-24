@@ -8,7 +8,7 @@ dotenv.config();
 
 const bucketName = process.env.AWS_S3_BUCKET;
 const region = process.env.AWS_REGION || "us-east-1";
-const reportDir = path.resolve(__dirname, "../../allure-report");
+const reportDir = path.resolve(__dirname, "../allure-report");
 
 if (!bucketName) {
   console.error("Error: AWS_S3_BUCKET environment variable is not set.");
