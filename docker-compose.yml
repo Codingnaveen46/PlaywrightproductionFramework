@@ -3,7 +3,6 @@ version: '3.8'
 services:
   regression:
     build: .
-    volumes:
-      - ./allure-report:/app/allure-report
-      - ./allure-results:/app/allure-results
-    command: /bin/sh -c "npm test && npm run report:generate"
+    env_file:
+      - .env
+    command: /bin/sh -c "npm test && npm run report:generate && npm run report:upload"
