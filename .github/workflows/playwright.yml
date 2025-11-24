@@ -24,7 +24,15 @@ jobs:
     - name: Generate Allure Report
       if: always()
       run: npm run report:generate
-    - name: Upload Allure Report
+    - name: Upload Report to S3
+      if: always()
+      run: npm run report:upload
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+    - name: Upload Allure Report Artifact
       if: always()
       uses: actions/upload-artifact@v4
       with:

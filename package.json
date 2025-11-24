@@ -8,7 +8,7 @@
     "test:tags": "cucumber-js --tags",
     "report:generate": "allure generate allure-results --clean -o allure-report",
     "report:open": "allure open allure-report",
-    "report:upload": "ts-node src/support/upload-s3.ts",
+    "report:upload": "ts-node scripts/upload-s3.ts",
     "report": "npm run report:generate && npm run report:open"
   },
   "keywords": [
