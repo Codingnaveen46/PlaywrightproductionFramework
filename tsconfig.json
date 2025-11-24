@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "sourceMap": true,
+        "outDir": "dist"
+    },
+    "include": [
+        "src/**/*.ts",
+        "features/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

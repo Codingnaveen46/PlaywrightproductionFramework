@@ -1,0 +1,38 @@
+{
+  "name": "playwright-cucumber-ts-framework",
+  "version": "1.0.0",
+  "description": "Hybrid Playwright framework with Cucumber BDD and TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js test",
+    "test:tags": "cucumber-js --tags",
+    "report:generate": "allure generate allure-results --clean -o allure-report",
+    "report:open": "allure open allure-report",
+    "report:upload": "ts-node src/support/upload-s3.ts",
+    "report": "npm run report:generate && npm run report:open"
+  },
+  "keywords": [
+    "playwright",
+    "cucumber",
+    "typescript",
+    "bdd",
+    "automation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.3.1",
+    "@playwright/test": "^1.41.2",
+    "@types/mime-types": "^3.0.1",
+    "@types/node": "^20.11.19",
+    "allure-commandline": "^2.27.0",
+    "allure-cucumberjs": "^2.15.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.937.0",
+    "dotenv": "^16.4.5",
+    "mime-types": "^3.0.2"
+  }
+}
