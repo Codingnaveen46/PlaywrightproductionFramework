@@ -14,7 +14,7 @@ module.exports = {
         requireModule: ["ts-node/register"],
         format: [
             "progress-bar",
-            "./src/support/reporter.js"
+            // "./src/support/reporter.js"
         ],
     },
 };

@@ -23,12 +23,23 @@ This is a production-ready hybrid automation framework using **Playwright**, **C
 │   ├── hooks           # Cucumber hooks (Before/After)
 │   ├── pages           # Page Object classes
 │   ├── steps           # Step Definitions
-│   └── support         # Custom World and helper utilities
+│   ├── support         # Custom World and helper utilities
+│   └── data            # Test data (JSON)
 ├── cucumber.js         # Cucumber configuration
 ├── package.json        # Dependencies and scripts
 ├── tsconfig.json       # TypeScript configuration
 └── README.md           # Documentation
 ```
+
+## Configuration & Data
+
+- **Config**: `config/environment.ts` manages environment-specific URLs.
+  - Switch environments using `ENV=dev npm test` (defaults to `qa`).
+- **Static Data**: `src/data/` contains JSON files for test data.
+- **Data Loader**: `src/support/data-loader.ts` allows loading and saving data dynamically.
+  ```typescript
+  const users = DataLoader.load('users');
+  ```
 
 ## Prerequisites
 
