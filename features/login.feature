@@ -3,10 +3,8 @@ Feature: Facilio login page
   I want to open the login page
   So that I can sign in to my account
 
-  Background:
+  Scenario: Complete Login Flow - Verify Login Page, Login, and Dashboard
     Given I am on the Facilio login page
-
-  Scenario: Login page is displayed correctly
     Then I should see the login title "Welcome Back!"
     And I should see the email address input field
     And I should see the submit button
@@ -15,10 +13,10 @@ Feature: Facilio login page
       | Microsoft |
       | Google    |
     And the login page URL should contain "identity/login"
-
-  Scenario: Successful Login and Data Storage
     When I enter the email from "validUser"
     And I click the submit button
     And I enter the password from "validUser"
     And I click the sign in button
-    Then I store the login data in the data folder
+    Then I should be redirected to the dashboard page
+    And I wait for 60 seconds to view the dashboard
+    And I store the login data in the data folder
