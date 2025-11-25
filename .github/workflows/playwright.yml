@@ -22,7 +22,27 @@ jobs:
     - name: Create users.json from secrets
       run: |
         mkdir -p src/data
-        echo '{"validUser":{"email":"${{ secrets.FACILIO_EMAIL }}","password":"${{ secrets.FACILIO_PASSWORD }}"}}' > src/data/users.json
+        node -e "
+        const fs = require('fs');
+        const data = {
+          validUser: {
+            email: process.env.FACILIO_EMAIL || '',
+            password: process.env.FACILIO_PASSWORD || ''
+          }
+        };
+        fs.writeFileSync('src/data/users.json', JSON.stringify(data, null, 2));
+        console.log('Created users.json');
+        "
+      env:
+        FACILIO_EMAIL: ${{ secrets.FACILIO_EMAIL }}
+        FACILIO_PASSWORD: ${{ secrets.FACILIO_PASSWORD }}
+    - name: Verify users.json was created
+      run: |
+        echo "Contents of users.json:"
+        cat src/data/users.json
+        echo ""
+        echo "File exists check:"
+        ls -la src/data/
     - name: Run Cucumber Tests
       run: npm test
     - name: Generate Allure Report
