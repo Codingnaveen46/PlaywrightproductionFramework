@@ -22,12 +22,7 @@ jobs:
     - name: Create users.json from secrets
       run: |
         mkdir -p src/data
-        echo '{
-          "validUser": {
-            "email": "${{ secrets.FACILIO_EMAIL }}",
-            "password": "${{ secrets.FACILIO_PASSWORD }}"
-          }
-        }' > src/data/users.json
+        echo '{"validUser":{"email":"${{ secrets.FACILIO_EMAIL }}","password":"${{ secrets.FACILIO_PASSWORD }}"}}' > src/data/users.json
     - name: Run Cucumber Tests
       run: npm test
     - name: Generate Allure Report
