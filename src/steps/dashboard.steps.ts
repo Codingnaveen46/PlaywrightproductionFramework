@@ -24,3 +24,9 @@ Then('I should see the create dashboard buttons', async function (this: ICustomW
   const dashboardPage = new DashboardPage(page);
   await dashboardPage.verifyDashboardElements();
 });
+
+Then('I click on the sidebar menu icon', async function (this: ICustomWorld) {
+  const page = this.page!;
+  const dashboardPage = new DashboardPage(page);
+  await dashboardPage.clickSidebarMenuIcon();
+});
