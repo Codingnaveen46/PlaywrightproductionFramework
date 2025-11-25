@@ -4,6 +4,10 @@ node_modules/
 # Environment variables
 .env
 
+# Sensitive data - ignore actual credentials but allow example files
+src/data/users.json
+data/login_session.json
+
 # Build outputs
 dist/
 test-results/
